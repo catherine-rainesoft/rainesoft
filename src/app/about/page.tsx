@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { createClient } from "@/lib/supabaseClient";
 import Hero from "@/Components/Hero";
 import ServiceCard from "@/Components/ServiceCard";
@@ -65,7 +65,7 @@ const Home = () => {
                 href="/contact"
                 className="border border-[#6DC1FC] px-3 py-2 rounded-md"
               >
-                Let's Work Together
+                Let&apos;s Work Together
               </a>
             </div>
           }
