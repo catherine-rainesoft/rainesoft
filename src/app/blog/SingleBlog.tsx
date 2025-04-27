@@ -1,0 +1,63 @@
+'use client'
+
+import { useState } from "react"
+import { motion, AnimatePresence } from "framer-motion"
+import Comments from "@/Components/Comment"
+
+type BlogPost = {
+  id: string
+  title: string
+  content: string
+  cover_image: string
+  tags: string[] | string
+}
+
+export default function SingleBlog({ blog }: { blog: BlogPost }) {
+  const [showAll, setShowAll] = useState(false)
+
+  return (
+    <AnimatePresence mode="wait">
+      <motion.section
+        key={blog.id}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+        transition={{ duration: 0.4 }}
+        className="p-8 max-w-4xl mx-auto bg-white flex flex-col" id="Blog-post"
+      >
+        <img src={blog.cover_image} alt={blog.title} className="w-full h-72 object-cover rounded-xl" />
+        <h1 className="mt-6 text-3xl font-bold text-black">{blog.title}</h1>
+        <div className="mt-4 flex flex-wrap gap-2">
+          {(Array.isArray(blog.tags) ? blog.tags : blog.tags?.split(','))?.map((tag, index) => (
+            <span
+              key={index}
+              className="text-xs border border-[#6dc1fc] hover:shadow-md cursor-pointer text-black px-2 py-1 rounded"
+            >
+              #{tag.trim()}
+            </span>
+          ))}
+        </div>
+
+        <div className="mt-6 text-gray-700 leading-relaxed text-lg whitespace-pre-line">
+          {showAll ? blog.content : blog.content.slice(0, 300) + '...'}
+        </div>
+
+        {blog.content.length > 300 && (
+            <div className="flex justify-center lg:justify-end">
+                 <button
+            onClick={() => setShowAll(prev => !prev)}
+            className="hover:shadow-md border border-[#6dc1fc] p-2 text-black mr-0 mt-4 rounded "
+          >
+            {showAll ? 'See Less' : 'See All'}
+          </button>
+            </div>
+         
+        )}
+      </motion.section>
+
+      <div className="h-0.5 bg-gray-300 my-[5rem] mx-8"></div>
+
+      <Comments />
+    </AnimatePresence>
+  )
+}
