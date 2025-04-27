@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { createClient } from "@/lib/supabaseClient";
 import BlogCard from "@/Components/BlogCard";
 import Hero from "@/Components/Hero";

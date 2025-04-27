@@ -1,7 +1,7 @@
 
 "use client";
 
-import { motion } from "framer-motion";
+import React, { motion } from "framer-motion";
 import { useState, useEffect } from "react";
 import SingleBlog from "@/app/blog/SingleBlog";
 import BlogList from "@/Components/BlogList";
@@ -23,7 +23,7 @@ export default function Page() {
   useEffect(() => {
     const fetchBlogs = async () => {
       const supabase = createClient();
-      const { data, error } = await supabase.from("blog_posts").select("*");
+      const { data, error } = await supabase.from("blog").select("*");
       if (error) {
         console.error("Error fetching blogs:", error.message);
       } else {
