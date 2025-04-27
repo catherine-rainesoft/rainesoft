@@ -1,40 +1,12 @@
 'use client';
 
 import { motion } from "framer-motion";
-import React, { useEffect, useState } from "react";
-import { createClient } from "@/lib/supabaseClient";
+import React from "react";
 import Hero from "@/Components/Hero";
 import DetailedServices from "@/Components/DetailedServices";
 import Rainesoft from "@/Components/ChooseRainesoft";
 
-// Define the type for a blog post
-type BlogPost = {
-  id: string;
-  title: string;
-  content: string;
-  cover_image: string;
-  tags: string[] | string;
-};
-
 const Home = () => {
-  const [blogs, setBlogs] = useState<BlogPost[]>([]); // Use specific type for blogs
-
-  useEffect(() => {
-    const fetchBlogs = async () => {
-      const supabase = createClient();
-      const { data, error } = await supabase.from("blog").select("*");
-
-      if (error) {
-        console.error("Error fetching blogs:", error.message);
-      } else {
-        console.log("Fetched blogs:", data);
-        setBlogs(data as BlogPost[]); // Correctly cast data
-      }
-    };
-
-    fetchBlogs();
-  }, []);
-
   return (
     <motion.main initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.8 }}>
       <section className="h-full font-nunito">

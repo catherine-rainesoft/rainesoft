@@ -7,17 +7,7 @@ import ServiceCard from "@/Components/ServiceCard";
 import { motion } from "framer-motion";
 import Image from "next/image";
 
-interface Blog {
-  id: number;
-  title: string;
-  content: string;
-  cover_image: string;
-  tags: string[] | string;
-}
-
 const Home = () => {
-  const [blogs, setBlogs] = useState<Blog[]>([]);
-
   useEffect(() => {
     const fetchBlogs = async () => {
       const supabase = createClient();
@@ -27,7 +17,6 @@ const Home = () => {
         console.error("Error fetching blogs:", error.message);
       } else {
         console.log("Fetched blogs:", data);
-        setBlogs(data);
       }
     };
 
@@ -252,3 +241,4 @@ const Home = () => {
 };
 
 export default Home;
+

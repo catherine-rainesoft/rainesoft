@@ -1,46 +1,20 @@
 "use client";
 
 import { motion } from "framer-motion";
-import React, { useEffect, useState } from "react";
-import { createClient } from "@/lib/supabaseClient";
+import React from "react";
 import Hero from "@/Components/Hero";
 import ContactCard from "@/Components/ContactCard";
 import ContactUs from "@/Components/GetInTouch";
 import Socials from "@/Components/Socials";
 import Image from "next/image";  // Import Image for optimization
 
-type Blog = {
-  id: string;
-  title: string;
-  content: string;
-  cover_image: string;
-  tags: string[] | string;
-};
-
 const Home = () => {
-  const [blogs, setBlogs] = useState<Blog[]>([]);  // Use Blog[] type
-
-  useEffect(() => {
-    const fetchBlogs = async () => {
-      const supabase = createClient();
-      const { data, error } = await supabase.from("blog").select("*");
-
-      if (error) {
-        console.error("Error fetching blogs:", error.message);
-      } else {
-        console.log("Fetched blogs:", data);
-        setBlogs(data);
-      }
-    };
-
-    fetchBlogs();
-  }, []);
-
   return (
     <motion.main
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
-      transition={{ duration: 0.8 }}>
+      transition={{ duration: 0.8 }}
+    >
       <section className="h-full font-nunito">
         <Hero
           backgroundImage="https://ktezlusdkqlfdwqrldtn.supabase.co/storage/v1/object/public/web-images//Frame%2073.png"
@@ -101,7 +75,7 @@ const Home = () => {
                 height={400}
               />
               <div className="flex gap-3 ">
-                <Socials src="https://ktezlusdkqlfdwqrldtn.supabase.co/storage/v1/object/public/web-images//phone.png" alt="Call" href="tel:+233242772885"/>
+                <Socials src="https://ktezlusdkqlfdwqrldtn.supabase.co/storage/v1/object/public/web-images//phone.png" alt="Call" href="tel:+233242772885" />
                 <Socials src="https://ktezlusdkqlfdwqrldtn.supabase.co/storage/v1/object/public/web-images//message.png" alt="Mail" href="mailto:david@rainesoft.com" />
                 <Socials src="https://ktezlusdkqlfdwqrldtn.supabase.co/storage/v1/object/public/web-images//linkedin.png" alt="LinkedIn" href="https://linkedin.com/company/rainesoft-solutions" />
               </div>
