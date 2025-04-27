@@ -7,7 +7,6 @@ import ServiceCard from "@/Components/ServiceCard";
 import { motion } from "framer-motion";
 import Image from "next/image";
 
-
 interface Blog {
   id: number;
   title: string;
@@ -17,7 +16,7 @@ interface Blog {
 }
 
 const Home = () => {
-  const [blogs, setBlogs] = useState<any[]>([]);
+  const [blogs, setBlogs] = useState<Blog[]>([]);
 
   useEffect(() => {
     const fetchBlogs = async () => {
@@ -84,23 +83,24 @@ const Home = () => {
         />
 
         {/* What we do */}
-        <motion.section initial={{ x: -100, opacity: 0 }}
-    whileInView={{ x: 0, opacity: 1 }}
-    transition={{
-      type: "spring",
-      stiffness: 30,
-      damping: 12,
-    }}
-    viewport={{ once: true, amount: 0.1 }}>
-        <div className="container mx-auto px-8 py-16 bg-white">
-          
+        <motion.section
+          initial={{ x: -100, opacity: 0 }}
+          whileInView={{ x: 0, opacity: 1 }}
+          transition={{
+            type: "spring",
+            stiffness: 30,
+            damping: 12,
+          }}
+          viewport={{ once: true, amount: 0.1 }}
+        >
+          <div className="container mx-auto px-8 py-16 bg-white">
             <div className="flex flex-col lg:flex-row items-center gap-12">
               <div className="lg:w-1/2">
                 <Image
                   src="https://ktezlusdkqlfdwqrldtn.supabase.co/storage/v1/object/public/web-images//software%20tester-bro.png"
                   alt="About Rainesoft"
                   width={9000}
-              height={50}
+                  height={50}
                 />
               </div>
 
@@ -109,28 +109,26 @@ const Home = () => {
                   <span className="text-[#6DC1FC]">Our</span> Story
                 </h2>
 
-                <p className=" text-gray-700 lg:text-[20px]">
+                <p className="text-gray-700 lg:text-[20px]">
                   Founded in 2020, Rainesoft was born out of a vision to help
-                  businesses harness the power of technologyin smarter, more
+                  businesses harness the power of technology in smarter, more
                   cost-effective ways. What started as a small team of engineers
                   and cloud enthusiasts has grown into a dynamic company that
                   delivers cloud consulting, custom software solutions, and
                   data-driven insights to organizations around the world. Our
                   goal has always been simple — to build tools and systems that
                   not only solve problems, but also drive growth and innovation.
-                  Whether it's helping companies reduce cloud costs through
+                  Whether it&apos;s helping companies reduce cloud costs through
                   FinOps, creating tailored business apps, or exploring
                   AI-powered trading systems, we bring clarity, efficiency, and
                   creativity to everything we do.
                 </p>
               </div>
             </div>
-          
-        </div>
+          </div>
         </motion.section>
 
         {/* Our Services */}
-       
         <div className="container mx-auto px-8 py-16 bg-white">
           <div className="flex flex-col lg:flex-row items-center gap-12">
             <div className="lg:w-1/2">
@@ -141,7 +139,7 @@ const Home = () => {
                 src="https://ktezlusdkqlfdwqrldtn.supabase.co/storage/v1/object/public/web-images//Server.png"
                 alt="About Rainesoft"
                 width={1000}
-              height={5}
+                height={5}
               />
             </div>
 
@@ -174,7 +172,7 @@ const Home = () => {
               </h2>
               <p className="text-white lg:text-[20px]">
                 Rainesoft empowers businesses with smart, scalable tech
-                solutions—from custom software to cloud and data services. We're
+                solutions—from custom software to cloud and data services. We&apos;re
                 driven by innovation, simplicity, and a commitment to helping
                 teams work smarter and grow faster.
               </p>
@@ -183,7 +181,8 @@ const Home = () => {
             <div className="hidden lg:block w-1/2">
               <Image
                 src="https://ktezlusdkqlfdwqrldtn.supabase.co/storage/v1/object/public/web-images//mission.png"
-                alt="Mission" width={1000}
+                alt="Mission"
+                width={1000}
                 height={5}
               />
             </div>
@@ -193,7 +192,8 @@ const Home = () => {
             <div className="hidden lg:block w-1/2">
               <Image
                 src="https://ktezlusdkqlfdwqrldtn.supabase.co/storage/v1/object/public/web-images//Vision.png"
-                alt="Vision" width={1000}
+                alt="Vision"
+                width={1000}
                 height={5}
               />
             </div>
@@ -226,12 +226,12 @@ const Home = () => {
           <div className="flex items-center">
             <div className="">
               <p className="text-gray-600 lg:text-[20px]">
-                Be the first to know what's happening in the world of
+                Be the first to know what&apos;s happening in the world of
                 technology, cloud solutions, software development, and data
                 analytics. Our newsletter delivers curated insights, project
                 highlights, tech tips, and behind-the-scenes updates straight to
-                your inbox. Whether you're a tech enthusiast, business owner, or
-                developer, we've got something valuable for you—no fluff, just
+                your inbox. Whether you&apos;re a tech enthusiast, business owner, or
+                developer, we&apos;ve got something valuable for you—no fluff, just
                 fresh perspectives and helpful content every month.
               </p>
             </div>
@@ -239,7 +239,8 @@ const Home = () => {
             <div className="hidden lg:block">
               <Image
                 src="https://ktezlusdkqlfdwqrldtn.supabase.co/storage/v1/object/public/web-images//Server.png"
-                alt="About Rainesoft" width={3900}
+                alt="About Rainesoft"
+                width={3900}
                 height={5}
               />
             </div>

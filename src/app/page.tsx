@@ -2,12 +2,13 @@
 
 import { useEffect, useState } from "react";
 import { createClient } from "@/lib/supabaseClient";
-import BlogCard from "@/Components/BlogCard";
 import Hero from "@/Components/Hero";
 import StatsSection from "@/Components/StatsSection";
 import OurServices from "@/Components/OurServices";
 import Blog from "@/Components/Blog";
 import { motion } from "framer-motion";
+import Image from "next/image";
+
 
 
 const Home = () => {
@@ -66,9 +67,10 @@ const Home = () => {
             </div>
            
             <div>
-              <img
+              <Image
                 src="https://ktezlusdkqlfdwqrldtn.supabase.co/storage/v1/object/public/web-images//Server.png"
-                alt="Hero"
+                alt="Hero" width={800}
+                height={400}
               />
             </div>
           </div>
@@ -79,10 +81,11 @@ const Home = () => {
       <div className="container mx-auto px-6 py-16 bg-white">
         <div className="flex flex-col lg:flex-row items-center gap-12">
           <div className="lg:w-1/2">
-            <img
+            <Image
               src="https://ktezlusdkqlfdwqrldtn.supabase.co/storage/v1/object/public/web-images//company.png"
               alt="About Rainesoft"
-              className="w-full h-auto"
+              className="w-full h-auto" width={400}
+              height={400}
             />
           </div>
 
@@ -106,10 +109,11 @@ const Home = () => {
               className="inline-flex items-center text-[#6DC1FC] font-medium text-lg mt-6 group"
             >
               More About Us
-              <img
+              <Image
                 src="/forward.png"
                 alt="Next"
-                className="h-5 w-5 ml-2 transform transition-transform duration-300 group-hover:translate-x-1"
+                className="h-5 w-5 ml-2 transform transition-transform duration-300 group-hover:translate-x-1" width={400}
+                height={400}
               />
             </a>
           </div>
@@ -147,10 +151,12 @@ const Home = () => {
               className="inline-flex items-center text-[#6DC1FC] font-medium text-lg mt-6 group"
             >
               More About What We Do
-              <img
+              <Image
                 src="/forward.png"
                 alt="Next"
                 className="h-5 w-5 ml-2 transform transition-transform duration-300 group-hover:translate-x-1"
+                width={400}
+            height={400}
               />
             </a>
           </div>
@@ -174,9 +180,10 @@ const Home = () => {
            viewport={{ once: true, amount: 0.3 }}>
           <div className="lg:flex items-center gap-5 px-6 py-16 text-white backdrop-brightness-75" id="Contacts">
             <div className="w-[70%]">
-              <img
+              <Image
                 src="https://ktezlusdkqlfdwqrldtn.supabase.co/storage/v1/object/public/web-images//Mobile.png"
-                alt="Contact"
+                alt="Contact" width={700}
+                height={400}
               />
             </div>
 

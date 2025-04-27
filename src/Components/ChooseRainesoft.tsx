@@ -75,7 +75,7 @@ export default function WhyChooseUs() {
               href="/contact"
               className="border border-[#6DC1FC] hover:shadow-md px-3 py-2 rounded-md lg:w-[15%] mx-auto"
             >
-              Let's Chat
+              Let&apos;s Chat
             </a>
     </section>
   );
