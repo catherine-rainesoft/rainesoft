@@ -2,10 +2,19 @@
 
 import React, { useEffect, useState } from "react";
 import { createClient } from "@/lib/supabaseClient";
-import BlogCard from "@/Components/BlogCard";
 import Hero from "@/Components/Hero";
 import ServiceCard from "@/Components/ServiceCard";
 import { motion } from "framer-motion";
+import Image from "next/image";
+
+
+interface Blog {
+  id: number;
+  title: string;
+  content: string;
+  cover_image: string;
+  tags: string[] | string;
+}
 
 const Home = () => {
   const [blogs, setBlogs] = useState<any[]>([]);
@@ -87,10 +96,11 @@ const Home = () => {
           
             <div className="flex flex-col lg:flex-row items-center gap-12">
               <div className="lg:w-1/2">
-                <img
+                <Image
                   src="https://ktezlusdkqlfdwqrldtn.supabase.co/storage/v1/object/public/web-images//software%20tester-bro.png"
                   alt="About Rainesoft"
-                  className="w-[90%] h-auto"
+                  width={9000}
+              height={50}
                 />
               </div>
 
@@ -127,10 +137,11 @@ const Home = () => {
               <p className="text-black text-4xl lg:text-5xl text-center font-bold">
                 What <span className="text-[#6DC1FC]">We</span> Do
               </p>
-              <img
+              <Image
                 src="https://ktezlusdkqlfdwqrldtn.supabase.co/storage/v1/object/public/web-images//Server.png"
                 alt="About Rainesoft"
-                className="w-[90%] h-auto"
+                width={1000}
+              height={5}
               />
             </div>
 
@@ -170,18 +181,20 @@ const Home = () => {
             </div>
 
             <div className="hidden lg:block w-1/2">
-              <img
+              <Image
                 src="https://ktezlusdkqlfdwqrldtn.supabase.co/storage/v1/object/public/web-images//mission.png"
-                alt="Mission"
+                alt="Mission" width={1000}
+                height={5}
               />
             </div>
           </div>
 
           <div className="flex items-center justify-around">
             <div className="hidden lg:block w-1/2">
-              <img
+              <Image
                 src="https://ktezlusdkqlfdwqrldtn.supabase.co/storage/v1/object/public/web-images//Vision.png"
-                alt="Vision"
+                alt="Vision" width={1000}
+                height={5}
               />
             </div>
             <div className="flex flex-col gap-5">
@@ -224,9 +237,10 @@ const Home = () => {
             </div>
 
             <div className="hidden lg:block">
-              <img
+              <Image
                 src="https://ktezlusdkqlfdwqrldtn.supabase.co/storage/v1/object/public/web-images//Server.png"
-                alt="About Rainesoft"
+                alt="About Rainesoft" width={3900}
+                height={5}
               />
             </div>
           </div>

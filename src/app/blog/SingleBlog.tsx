@@ -1,8 +1,9 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import React, { useState } from "react";
+import Image from "next/image";  // Import Image from next/image
 import Comments from "@/Components/Comment";
+import { motion } from 'framer-motion';
 
 type BlogPost = {
   id: string;
@@ -26,9 +27,11 @@ export default function SingleBlog({ blog }: { blog: BlogPost }) {
         className="p-8 max-w-4xl mx-auto bg-white flex flex-col"
         id="Blog-post"
       >
-        <img
+        <Image
           src={blog.cover_image}
           alt={blog.title}
+          width={1200} // Set the width for the image
+          height={480} // Set the height for the image
           className="w-full h-72 object-cover rounded-xl"
         />
         <h1 className="mt-6 text-3xl font-bold text-black">{blog.title}</h1>

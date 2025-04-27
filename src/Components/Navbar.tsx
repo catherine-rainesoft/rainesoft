@@ -4,6 +4,8 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
+import Image from "next/image";
+
 
 export default function Navbar() {
   const pathname = usePathname();
@@ -34,14 +36,18 @@ export default function Navbar() {
       }`}
     >
       <div className="flex items-center justify-between px-6 py-4 max-w-7xl mx-auto text-white">
-        <a  href="/">
-        <img src={
-            scrolled
-              ? "https://ktezlusdkqlfdwqrldtn.supabase.co/storage/v1/object/public/web-images//Frame%207%20(1).png"
-              : "/assets/Logo.svg"
-          } alt="Logo" className="h-15"/>
-        </a>
-        
+        <Link href="/">
+          <Image
+            src={
+              scrolled
+                ? "https://ktezlusdkqlfdwqrldtn.supabase.co/storage/v1/object/public/web-images//Frame%207%20(1).png"
+                : "/assets/Logo.svg"
+            }
+            alt="Logo"
+            width={140}
+              height={50}
+          />
+        </Link>
 
         {/* Desktop nav */}
         <div className="hidden md:flex items-center gap-6">

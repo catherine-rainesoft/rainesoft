@@ -21,7 +21,7 @@ export default function ContactCard({ icon, title, description, href }: ContactC
     >
       <div className="flex items-center gap-4 p-4 border border-blue-300 rounded-lg shadow-md hover:shadow-xl hover:-translate-y-1 hover:scale-105 transition-transform duration-300 w-full cursor-pointer">
         <div className="w-12 h-12 bg-blue-300 rounded-full flex items-center justify-center">
-          <img src={icon} alt={title} width={24} height={24} />
+          <Image src={icon} alt={title} width={24} height={24} />
         </div>
         <div>
           <h3 className="text-lg font-bold">{title}</h3>

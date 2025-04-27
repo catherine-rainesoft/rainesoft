@@ -1,6 +1,7 @@
 // // src/Components/Footer.tsx
 import Socials from "@/Components/Socials";
-import Link from "next/link";
+import Image from "next/image";
+
 
 export default function Footer() {
   return (
@@ -8,13 +9,14 @@ export default function Footer() {
       className="bg-cover bg-center text-white py-[3rem] px-7"
       style={{ backgroundImage: "url('/footer.png')" }}
     >
-      <div className="flex flex-col gap-3 container mx-auto text-center">
+      <div className="flex flex-col gap-3 container mx-auto">
         {/* Top */}
         <div className="grid lg:grid-cols-4 gap-[3rem]">
           {/* Info */}
           <div className="flex flex-col gap-5 items-start w-[70%]">
             <div>
-              <img src="/assets/Logo.svg" alt="Logo" className="h-15" />
+              <Image src="/assets/Logo.svg" alt="Logo" width={150}
+              height={50}/>
             </div>
             <span className="">
               Rainesoft helps teams optimize cloud costs, build smart apps, and

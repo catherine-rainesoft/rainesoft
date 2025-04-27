@@ -1,8 +1,10 @@
-'use client'
+'use client'; // Indicating client-side rendering for Next.js 13 and above
 import React, { useEffect, useState } from 'react';
 import { createClient } from '@/lib/supabaseClient';
 import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io';
 import { motion } from 'framer-motion';
+import Image from 'next/image';
+import Link from 'next/link'; // Import Link for navigation
 
 type BlogPost = {
   id: string;
@@ -15,19 +17,25 @@ type BlogPost = {
 export default function Blog() {
   const [blogs, setBlogs] = useState<BlogPost[]>([]);
   const [currentPage, setCurrentPage] = useState(1);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
   const blogsPerPage = 3;
 
   useEffect(() => {
     const fetchData = async () => {
       const supabase = createClient();
+      setLoading(true);
+      setError(null);
+
       const { data, error } = await supabase.from('blog').select('*');
 
       if (error) {
+        setError(error.message);
         console.error('Error fetching blogs:', error.message);
-        // Optionally set an error state to display a message
       } else {
         setBlogs(data as BlogPost[]);
       }
+      setLoading(false);
     };
 
     fetchData();
@@ -38,15 +46,10 @@ export default function Blog() {
   const currentBlogs = blogs.slice(indexOfFirstBlog, indexOfLastBlog);
   const totalPages = Math.ceil(blogs.length / blogsPerPage);
 
-  const goToNextPage = () => {
-    if (currentPage < totalPages) {
-      setCurrentPage((prev) => prev + 1);
-    }
-  };
-
-  const goToPreviousPage = () => {
-    if (currentPage > 1) {
-      setCurrentPage((prev) => prev - 1);
+  // Function to handle page selection
+  const handlePageSelect = (page: number) => {
+    if (page >= 1 && page <= totalPages) {
+      setCurrentPage(page);
     }
   };
 
@@ -63,48 +66,70 @@ export default function Blog() {
     >
       <section className="p-8 flex gap-8">
         <div className="flex-1">
+          {/* Loading state */}
+          {loading && (
+            <div className="text-center text-lg font-semibold text-gray-600">Loading...</div>
+          )}
+
+          {/* Error state */}
+          {error && (
+            <div className="text-center text-lg font-semibold text-red-600">{`Error: ${error}`}</div>
+          )}
+
           {/* Blog List */}
-          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-            {currentBlogs.map((blog) => (
-              <div
-                key={blog.id}
-                className="bg-white rounded-xl shadow-2xl overflow-hidden cursor-pointer"
-              >
-                <img
-                  src={blog.cover_image}
-                  alt={blog.title}
-                  className="w-full h-48 object-cover p-4"
-                />
-                <div className="p-4">
-                  <h2 className="text-xl font-bold text-black">{blog.title}</h2>
-                  <p className="mt-2 text-sm text-gray-600">
-                    {`${blog.content.slice(0, 100)}...`}
-                  </p>
-                  <a
-                    href={`/blog/${blog.id}`} // Dynamic route for the individual blog post
-                    className="text-[#6dc1fc] text-sm mt-2 hover:underline"
-                  >
-                    Read More
-                  </a>
-                  <div className="mt-4 flex flex-wrap gap-2">
-                    {(Array.isArray(blog.tags) ? blog.tags : blog.tags?.split(','))?.map((tag, index) => (
-                      <span
-                        key={index}
-                        className="text-xs border border-[#6dc1fc] hover:shadow-md cursor-pointer text-black px-2 py-1 rounded"
-                      >
-                        #{tag.trim()}
-                      </span>
-                    ))}
+          {!loading && !error && blogs.length > 0 && (
+            <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+              {currentBlogs.map((blog) => (
+                <div
+                  key={blog.id}
+                  className="bg-white rounded-xl shadow-2xl overflow-hidden cursor-pointer"
+                >
+                  <Image
+                    src={blog.cover_image}
+                    alt={blog.title}
+                    width={500}
+                    height={200}
+                    className="w-full h-48 object-cover p-4"
+                  />
+                  <div className="p-4">
+                    <h2 className="text-xl font-bold text-black">{blog.title}</h2>
+                    <p className="mt-2 text-sm text-gray-600">
+                      {`${blog.content.slice(0, 100)}...`}
+                    </p>
+                    <Link
+                      href="/blog"
+                      className="text-[#6dc1fc] text-sm mt-2 hover:underline"
+                    >
+                      Read More
+                    </Link>
+                    <div className="mt-4 flex flex-wrap gap-2">
+                      {(Array.isArray(blog.tags) ? blog.tags : blog.tags?.split(','))?.map((tag, index) => (
+                        <span
+                          key={index}
+                          className="text-xs border border-[#6dc1fc] hover:shadow-md cursor-pointer text-black px-2 py-1 rounded"
+                        >
+                          #{tag.trim()}
+                        </span>
+                      ))}
+                    </div>
                   </div>
                 </div>
-              </div>
-            ))}
-          </div>
+              ))}
+            </div>
+          )}
 
-          {totalPages > 1 && (
+          {/* No blogs available */}
+          {!loading && !error && blogs.length === 0 && (
+            <div className="text-center text-lg font-semibold text-gray-600">
+              No blogs available at the moment.
+            </div>
+          )}
+
+          {/* Pagination */}
+          {totalPages > 1 && !loading && !error && (
             <div className="flex justify-center items-center gap-4 mt-8">
               <button
-                onClick={goToPreviousPage}
+                onClick={() => handlePageSelect(currentPage - 1)}
                 disabled={currentPage === 1}
                 className={`p-2 rounded-full bg-[#6dc1fc] text-white text-xl ${
                   currentPage === 1 ? 'opacity-50 cursor-not-allowed' : 'hover:bg-[#58b0f8]'
@@ -118,7 +143,7 @@ export default function Blog() {
               </span>
 
               <button
-                onClick={goToNextPage}
+                onClick={() => handlePageSelect(currentPage + 1)}
                 disabled={currentPage === totalPages}
                 className={`p-2 rounded-full bg-[#6dc1fc] text-white text-xl ${
                   currentPage === totalPages ? 'opacity-50 cursor-not-allowed' : 'hover:bg-[#58b0f8]'

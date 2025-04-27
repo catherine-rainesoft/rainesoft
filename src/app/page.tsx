@@ -94,7 +94,7 @@ const Home = () => {
               At Rainesoft, we build smart tech that helps businesses grow.
             </h3>
             <p className="text-gray-600 mb-8">
-              From cloud consulting to custom software and data insights — we've
+              From cloud consulting to custom software and data insights — we&apos;ve
               got you covered.
             </p>
 
@@ -182,7 +182,7 @@ const Home = () => {
 
             <div className="flex flex-col items-center gap-[5rem] mx-auto">
               <span className="text-3xl lg:text-6xl font-bold text-white">
-                Let’s build something amazing together.
+                Let&apos;s build something amazing together.
               </span>
               <a
                 className="border border-[#6DC1FC] px-3 py-2 rounded-md"

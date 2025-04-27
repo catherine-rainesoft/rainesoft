@@ -1,4 +1,5 @@
 "use client";
+import Image from "next/image";
 
 
 const features = [
@@ -35,12 +36,12 @@ export default function WhyChooseUs() {
             At Rainesoft, we take the time to understand your goals, challenges,
             and vision—so we can craft systems that not only solve problems, but
             also unlock new opportunities. Our commitment goes beyond just
-            delivering features; we’re here to create value at every step.
+            delivering features; we&apos;re here to create value at every step.
           </p>
         </div>
 
         <div className="max-w-sm">
-          <img
+          <Image
             src="https://ktezlusdkqlfdwqrldtn.supabase.co/storage/v1/object/public/web-images//Choose.png"
             alt="Choose Rainesoft"
             width={400}
@@ -56,7 +57,7 @@ export default function WhyChooseUs() {
             key={index}
             className="bg-[#6dc1fc] text-white rounded-lg px-5 py-9 shadow-md flex flex-col items-center"
           >
-            <img
+            <Image
               src={feature.iconUrl}
               alt={feature.title}
               width={90}

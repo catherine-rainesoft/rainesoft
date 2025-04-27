@@ -1,6 +1,8 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
+
 
 type SocialIconProps = {
   src: string;
@@ -17,7 +19,8 @@ export default function SocialIcon({ src, alt, href }: SocialIconProps) {
       target={href?.startsWith("http") ? "_blank" : undefined}
       className="w-10 h-10 rounded-full bg-[#6dc1fc] flex items-center justify-center shadow hover:scale-105 transition-transform cursor-pointer"
     >
-      <img src={src} alt={alt} className="w-5 h-5" />
+      <Image src={src} alt={alt} width={20}
+              height={5}/>
     </Wrapper>
   );
 }

@@ -1,6 +1,7 @@
 'use client'
 
 import { useState } from 'react'
+import Image from "next/image";
 
 type BlogPost = {
   id: string
@@ -11,9 +12,8 @@ type BlogPost = {
 }
 
 export default function BlogList({ blogs, onSelectBlog }: { blogs: BlogPost[], onSelectBlog: (blog: BlogPost) => void }) {
-  const [showAll, setShowAll] = useState(false) // Declare showAll state
+  const [showAll, setShowAll] = useState(false) 
 
-  // Only show the first 3 blogs when not showing all
   const visibleBlogs = showAll ? blogs : blogs.slice(0, 2)
 
   return (
@@ -27,10 +27,12 @@ export default function BlogList({ blogs, onSelectBlog }: { blogs: BlogPost[], o
             className="bg-white border border-[#6dc1fc] rounded-xl shadow-2xl overflow-hidden cursor-pointer"
             onClick={() => onSelectBlog(blog)}
           >
-            <img
-              src={blog.cover_image}
-              alt={blog.title}
-              className="w-full h-48 object-cover p-4"
+            <Image
+               src={blog.cover_image}
+               alt={blog.title}
+               width={500}  // Set the width of the image (or a value that works for you)
+               height={200} // Set the height of the image (matching your design)
+               className="w-full h-48 object-cover p-4"
             />
             <div className="p-4">
               <h2 className="text-xl font-bold text-black">{blog.title}</h2>
@@ -45,7 +47,6 @@ export default function BlogList({ blogs, onSelectBlog }: { blogs: BlogPost[], o
         ))}
       </div>
 
-      {/* See All / See Less button */}
       {blogs.length > 3 && (
         <button
           onClick={() => setShowAll((prev) => !prev)}
