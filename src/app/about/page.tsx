@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useEffect } from "react";
-import { createClient } from "@/lib/supabaseClient";
+import { supabase } from "@/lib/supabaseClient";
 import Hero from "@/Components/Hero";
 import ServiceCard from "@/Components/ServiceCard";
 import { motion } from "framer-motion";
@@ -10,7 +10,7 @@ import Image from "next/image";
 const Home = () => {
   useEffect(() => {
     const fetchBlogs = async () => {
-      const supabase = createClient();
+      
       const { data, error } = await supabase.from("blog").select("*");
 
       if (error) {

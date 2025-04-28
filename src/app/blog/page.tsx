@@ -5,7 +5,7 @@ import React, { motion } from "framer-motion";
 import { useState, useEffect } from "react";
 import SingleBlog from "@/app/blog/SingleBlog";
 import BlogList from "@/Components/BlogList";
-import { createClient } from "@/lib/supabaseClient";
+import { supabase } from "@/lib/supabaseClient";
 import Hero from "@/Components/Hero";
 
 type BlogPost = {
@@ -22,7 +22,6 @@ export default function Page() {
 
   useEffect(() => {
     const fetchBlogs = async () => {
-      const supabase = createClient();
       const { data, error } = await supabase.from("blog").select("*");
       if (error) {
         console.error("Error fetching blogs:", error.message);

@@ -1,6 +1,6 @@
 'use client'; // Indicating client-side rendering for Next.js 13 and above
 import React, { useEffect, useState } from 'react';
-import { createClient } from '@/lib/supabaseClient';
+import { supabase } from "@/lib/supabaseClient";
 import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
@@ -23,7 +23,6 @@ export default function Blog() {
 
   useEffect(() => {
     const fetchData = async () => {
-      const supabase = createClient();
       setLoading(true);
       setError(null);
 
