@@ -21,7 +21,7 @@ const Home = () => {
             <div className="lg:grid grid-cols-2 items-center px-6">
               <div className="pt-[6rem] lg:pt-0 flex flex-col gap-5 lg:gap-8">
                 <span className="text-[#6DC1FC]">Rainesoft Solutions</span>
-                <span className="text-lg lg:text-5xl font-bold">
+                <span className="text-xl lg:text-5xl font-bold">
                   Cloud-First Business Solutions Built For Scale
                 </span>
                 <span className="text-gray-400">
@@ -68,10 +68,10 @@ const Home = () => {
             </div>
 
             <div className="lg:w-1/2 flex flex-col items-center" id="About-Us">
-              <h2 className="text-4xl font-bold mb-6 text-black">
+              <h2 className="text-3xl lg:text-4xl font-bold mb-6 text-black">
                 About <span className="text-[#6DC1FC]">Us</span>
               </h2>
-              <h3 className="text-2xl font-semibold mb-4 text-black">
+              <h3 className="text-xl lg:text-2xl font-semibold mb-4 text-black">
                 At Rainesoft, we build smart tech that helps businesses grow.
               </h3>
               <p className="text-gray-600 mb-8">
@@ -113,7 +113,7 @@ const Home = () => {
               viewport={{ once: false, amount: 0.1 }}
             >
               <div className="px-6 py-16 text-center flex flex-col items-center gap-5 backdrop-brightness-75" id="Our-Services">
-                <h2 className="text-4xl font-bold mb-6 text-white">
+                <h2 className="text-3xl lg:text-4xl font-bold mb-6 text-white">
                   <span className="text-[#6DC1FC]">Our</span> Services
                 </h2>
                 <span className="text-white">
@@ -142,7 +142,7 @@ const Home = () => {
             {/* Blog */}
             <motion.section>
               <div className="bg-gray-100 py-16 px-4" id="Blog">
-                <h2 className="text-4xl font-bold mb-10 text-center text-black">
+                <h2 className="text-3xl lg:text-4xl font-bold mb-10 text-center text-black">
                   <span className="text-[#6DC1FC]">Our</span> Blog
                 </h2>
                 <Blog />

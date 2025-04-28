@@ -152,7 +152,7 @@ const MessageUs = () => {
   <div>
     <button
       type="submit"
-      className="w-full border border-2 border-[#6DC1FC] text-black font-bold py-2 rounded-md hover:shadow-md transition-colors"
+      className="w-full  border-2 border-[#6DC1FC] text-black font-bold py-2 rounded-md hover:shadow-md transition-colors"
       disabled={loading}
     >
       {loading ? "Sending..." : "Send Message"}

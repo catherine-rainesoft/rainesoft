@@ -50,7 +50,7 @@ export default function NewsletterForm() {
       <button
         type="submit"
         disabled={loading}
-        className="bg-[#6dc1fc] text-white font-semibold rounded px-2 lg:px-6 py-2 hover:bg-blue-500 transition-all disabled:opacity-50"
+        className="bg-[#6dc1fc] text-black font-semibold rounded px-2 lg:px-6 py-2 hover:bg-blue-500 transition-all disabled:opacity-50"
       >
         {loading ? "Submitting..." : "Subscribe"}
       </button>
