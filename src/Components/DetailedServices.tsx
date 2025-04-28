@@ -1,8 +1,6 @@
 import React from "react";
 import Image from "next/image";
 
-// First, let's update your ServiceCard component to include a new "featured" variant
-// You can create this as a separate component file: src/Components/FeaturedServiceCard.tsx
 
 interface FeaturedServiceCardProps {
   icon: string;
@@ -40,7 +38,7 @@ const FeaturedServiceCard: React.FC<FeaturedServiceCardProps> = ({
   );
 };
 
-// Now let's create the DetailedServices component
+
 
 const DetailedServices: React.FC = () => {
   const services = [

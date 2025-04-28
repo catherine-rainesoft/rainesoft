@@ -1,4 +1,3 @@
-// Components/StatsSection.jsx
 "use client";
 
 import Counter from './Counter';

@@ -41,7 +41,7 @@ const Counter = ({ targetValue, label, duration = 1500 }: CounterProps) => {
   }, [duration, targetValue]);
 
   useEffect(() => {
-    const currentCounterRef = counterRef.current; // Capture the ref value in a local variable
+    const currentCounterRef = counterRef.current; 
     const observer = new IntersectionObserver(
       (entries) => {
         if (entries[0].isIntersecting && !counterStarted.current) {
@@ -61,7 +61,7 @@ const Counter = ({ targetValue, label, duration = 1500 }: CounterProps) => {
         observer.unobserve(currentCounterRef);
       }
     };
-  }, [startCounter]); // Add startCounter to the dependency array
+  }, [startCounter]); 
 
   return (
     <div 

@@ -1,10 +1,10 @@
-'use client'; // Indicating client-side rendering for Next.js 13 and above
+'use client';
 import React, { useEffect, useState } from 'react';
 import { supabase } from "@/lib/supabaseClient";
 import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
-import Link from 'next/link'; // Import Link for navigation
+import Link from 'next/link';
 
 type BlogPost = {
   id: string;
@@ -45,7 +45,6 @@ export default function Blog() {
   const currentBlogs = blogs.slice(indexOfFirstBlog, indexOfLastBlog);
   const totalPages = Math.ceil(blogs.length / blogsPerPage);
 
-  // Function to handle page selection
   const handlePageSelect = (page: number) => {
     if (page >= 1 && page <= totalPages) {
       setCurrentPage(page);

@@ -27,7 +27,7 @@ export default function Page() {
       } else {
         setBlogs(data as BlogPost[]);
         if (data && data.length > 0) {
-          setSelectedBlog(data[0]); // Default to first blog
+          setSelectedBlog(data[0]); 
         }
       }
     };

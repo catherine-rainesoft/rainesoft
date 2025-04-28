@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import Image from "next/image";  // Import Image from next/image
+import Image from "next/image"; 
 import Comments from "@/Components/Comment";
 import { motion } from 'framer-motion';
 
@@ -30,19 +30,19 @@ export default function SingleBlog({ blog }: { blog: BlogPost }) {
         <Image
           src={blog.cover_image}
           alt={blog.title}
-          width={1200} // Set the width for the image
-          height={480} // Set the height for the image
+          width={1200} 
+          height={480} 
           className="w-full h-72 object-cover rounded-xl"
         />
         <h1 className="mt-6 text-3xl font-bold text-black">{blog.title}</h1>
         <div className="mt-4 flex flex-wrap gap-2">
           {(Array.isArray(blog.tags) ? blog.tags : blog.tags?.split(","))
             .map((tag) => tag.trim())
-            .filter((tag) => tag.length > 0) // Remove empty tags
-            .filter((value, index, self) => self.indexOf(value) === index) // Remove duplicates
+            .filter((tag) => tag.length > 0)
+            .filter((value, index, self) => self.indexOf(value) === index)
             .map((tag, index) => (
               <span
-                key={`${tag}-${index}`} // Ensure uniqueness by appending the index
+                key={`${tag}-${index}`} 
                 className="text-xs border border-[#6dc1fc] hover:shadow-md cursor-pointer text-black px-2 py-1 rounded"
               >
                 #{tag}

@@ -11,7 +11,7 @@ type BlogPost = {
   tags: string[] | string
 }
 
-export default function BlogList({ blogs, onSelectBlog }: { blogs: BlogPost[], onSelectBlog: (blog: BlogPost) => void }) {
+export default function BlogList({ blogs, onSelectBlogAction }: { blogs: BlogPost[], onSelectBlogAction: (blog: BlogPost) => void }) {
   const [showAll, setShowAll] = useState(false)
   const blogSectionRef = useRef<HTMLDivElement | null>(null)
 
@@ -32,20 +32,20 @@ export default function BlogList({ blogs, onSelectBlog }: { blogs: BlogPost[], o
           <div
             key={blog.id}
             className="bg-white border border-[#6dc1fc] rounded-xl shadow-2xl overflow-hidden cursor-pointer"
-            onClick={() => onSelectBlog(blog)}
+            onClick={() => onSelectBlogAction(blog)}
           >
             <Image
               src={blog.cover_image}
               alt={blog.title}
-              width={500}  // Set the width of the image (or a value that works for you)
-              height={200} // Set the height of the image (matching your design)
+              width={500}  
+              height={200}
               className="w-full h-48 object-cover p-4"
             />
             <div className="p-4">
               <h2 className="text-xl font-bold text-black">{blog.title}</h2>
 
               <button
-                onClick={handleReadMoreClick} // Scroll to top on click
+                onClick={handleReadMoreClick} 
                 className="text-black rounded text-sm mt-2 hover:shadow-md border border-[#6dc1fc] p-2 w-full"
               >
                 Read More

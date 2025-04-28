@@ -25,10 +25,9 @@ const Home = () => {
           }
         />
 
-        {/* Services */}
+
         <DetailedServices />
 
-        {/* Rainesoft */}
         <Rainesoft />
       </section>
     </motion.main>

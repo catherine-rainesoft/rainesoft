@@ -1,4 +1,4 @@
-// // src/Components/Footer.tsx
+
 import Socials from "@/Components/Socials";
 import Image from "next/image";
 

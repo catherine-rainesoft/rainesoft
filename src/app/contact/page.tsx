@@ -6,7 +6,7 @@ import Hero from "@/Components/Hero";
 import ContactCard from "@/Components/ContactCard";
 import ContactUs from "@/Components/GetInTouch";
 import Socials from "@/Components/Socials";
-import Image from "next/image";  // Import Image for optimization
+import Image from "next/image"; 
 
 const Home = () => {
   return (

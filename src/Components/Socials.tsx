@@ -7,7 +7,7 @@ import Image from "next/image";
 type SocialIconProps = {
   src: string;
   alt: string;
-  href?: string; // make link optional
+  href?: string; 
 };
 
 export default function SocialIcon({ src, alt, href }: SocialIconProps) {
