@@ -2,29 +2,32 @@
 
 import { useState, useRef } from 'react'
 import Image from "next/image";
+import { BlogPost } from '@/app/blog/page'; 
 
-type BlogPost = {
-  id: string
-  title: string
-  content: string
-  cover_image: string
-  tags: string[] | string
-}
 
-export default function BlogList({ blogs, onSelectBlogAction }: { blogs: BlogPost[], onSelectBlogAction: (blog: BlogPost) => void }) {
-  const [showAll, setShowAll] = useState(false)
-  const blogSectionRef = useRef<HTMLDivElement | null>(null)
+type BlogListProps = {
+  blogs: BlogPost[];
+  onSelectBlogAction: (blog: BlogPost) => void;
+};
 
-  const visibleBlogs = showAll ? blogs : blogs.slice(0, 2)
+export default function BlogList({ blogs, onSelectBlogAction }: BlogListProps) {
+  const [showAll, setShowAll] = useState(false);
+  
+  const visibleBlogs = showAll ? blogs : blogs.slice(0, 2);
 
-  const handleReadMoreClick = () => {
-    if (blogSectionRef.current) {
-      blogSectionRef.current.scrollIntoView({ behavior: 'smooth' }) // Scroll to the top smoothly
+  const scrollToTop = () => {
+    if (window.innerWidth <= 768) {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    } else {
+      const sectionRef = document.querySelector("section");
+      if (sectionRef) {
+        sectionRef.scrollIntoView({ behavior: "smooth" });
+      }
     }
-  }
+  };
 
   return (
-    <section className="p-8 flex flex-col gap-[3rem] bg-white" ref={blogSectionRef}>
+    <section className="p-8 flex flex-col gap-[3rem] bg-white">
       <h2 className="font-bold text-4xl text-black">Latest Posts</h2>
 
       <div className="grid gap-6">
@@ -37,7 +40,7 @@ export default function BlogList({ blogs, onSelectBlogAction }: { blogs: BlogPos
             <Image
               src={blog.cover_image}
               alt={blog.title}
-              width={500}  
+              width={500}
               height={200}
               className="w-full h-48 object-cover p-4"
             />
@@ -45,7 +48,7 @@ export default function BlogList({ blogs, onSelectBlogAction }: { blogs: BlogPos
               <h2 className="text-xl font-bold text-black">{blog.title}</h2>
 
               <button
-                onClick={handleReadMoreClick} 
+                onClick={scrollToTop}
                 className="text-black rounded text-sm mt-2 hover:shadow-md border border-[#6dc1fc] p-2 w-full"
               >
                 Read More
@@ -60,7 +63,7 @@ export default function BlogList({ blogs, onSelectBlogAction }: { blogs: BlogPos
           onClick={() => setShowAll((prev) => !prev)}
           className="hover:shadow-md rounded border border-[#6dc1fc] p-2 text-black self-center"
         >
-          {showAll ? 'See Less' : 'See All'}
+          {showAll ? "See Less" : "See All"}
         </button>
       )}
 
@@ -74,5 +77,5 @@ export default function BlogList({ blogs, onSelectBlogAction }: { blogs: BlogPos
         </div>
       </div>
     </section>
-  )
+  );
 }

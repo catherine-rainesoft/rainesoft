@@ -7,7 +7,7 @@ import BlogList from "@/Components/BlogList";
 import { supabase } from "@/lib/supabaseClient";
 import Hero from "@/Components/Hero";
 
-type BlogPost = {
+export type BlogPost = {
   id: string;
   title: string;
   content: string;
@@ -70,10 +70,8 @@ export default function Page() {
               {selectedBlog && <SingleBlog blog={selectedBlog} />}
             </div>
             <div className="w-full md:w-1/3">
-              <BlogList
-                blogs={blogs}
-                onSelectBlog={(blog: BlogPost) => setSelectedBlog(blog)}
-              />
+            <BlogList blogs={blogs} onSelectBlogAction={setSelectedBlog} />
+
             </div>
           </div>
         </div>
