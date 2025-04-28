@@ -43,7 +43,7 @@ export default function Navbar() {
                 ? "https://ktezlusdkqlfdwqrldtn.supabase.co/storage/v1/object/public/web-images//Frame%207%20(1).png"
                 : "/assets/Logo.svg"
             }
-            alt="Logo"
+            alt="Logo" 
             width={140}
               height={50}
           />
