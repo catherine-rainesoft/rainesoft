@@ -1,7 +1,7 @@
 "use client";
 
-import React, { motion } from "framer-motion";
-import { useState, useEffect } from "react";
+import  { motion } from "framer-motion";
+import React, { useState, useEffect } from "react";
 import SingleBlog from "@/app/blog/SingleBlog";
 import BlogList from "@/Components/BlogList";
 import { supabase } from "@/lib/supabaseClient";

@@ -15,7 +15,8 @@
     "moduleResolution": "bundler",
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "jsx": "preserve", // Change this from "preserve" to "react"
+    "jsx": "preserve",
+    "jsxImportSource": "react", 
     "incremental": true,
     "plugins": [
       {
