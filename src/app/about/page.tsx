@@ -6,6 +6,7 @@ import Hero from "@/Components/Hero";
 import ServiceCard from "@/Components/ServiceCard";
 import { motion } from "framer-motion";
 import Image from "next/image";
+import Newsletter from "@/Components/NewsletterForm"
 
 const Home = () => {
   useEffect(() => {
@@ -25,22 +26,22 @@ const Home = () => {
 
   const serviceCards = [
     {
-      icon: "/icons/cloud.png",
+      icon: "https://ktezlusdkqlfdwqrldtn.supabase.co/storage/v1/object/public/web-images//Cloud.png",
       title: "Cloud Computing (FinOps)",
       description: "Optimize cloud infrastructure for financial services",
     },
     {
-      icon: "/icons/Tools.png",
+      icon: "https://ktezlusdkqlfdwqrldtn.supabase.co/storage/v1/object/public/web-images//Tools.png",
       title: "Software Development",
       description: "Custom software solutions for businesses",
     },
     {
-      icon: "/icons/Analysis.png",
+      icon: "https://ktezlusdkqlfdwqrldtn.supabase.co/storage/v1/object/public/web-images//Analysis.png",
       title: "Data Analysis",
       description: "Transform data into actionable insights",
     },
     {
-      icon: "/icons/trading.png",
+      icon: "https://ktezlusdkqlfdwqrldtn.supabase.co/storage/v1/object/public/web-images//Trading.png",
       title: "R&D in Trading Systems",
       description: "Research and development of advanced trading systems",
     },
@@ -213,7 +214,7 @@ const Home = () => {
           </h2>
 
           <div className="flex items-center">
-            <div className="">
+            <div className="flex flex-col gap-[2rem] lg:gap-[4rem]">
               <p className="text-gray-600 lg:text-[20px]">
                 Be the first to know what&apos;s happening in the world of
                 technology, cloud solutions, software development, and data
@@ -223,6 +224,8 @@ const Home = () => {
                 developer, we&apos;ve got something valuable for you—no fluff, just
                 fresh perspectives and helpful content every month.
               </p>
+
+              <Newsletter />
             </div>
 
             <div className="hidden lg:block">

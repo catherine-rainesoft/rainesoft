@@ -45,25 +45,25 @@ const FeaturedServiceCard: React.FC<FeaturedServiceCardProps> = ({
 const DetailedServices: React.FC = () => {
   const services = [
     {
-      icon: "/icons/cloud.png",
+      icon: "https://ktezlusdkqlfdwqrldtn.supabase.co/storage/v1/object/public/web-images//Cloud.png",
       title: "Cloud Consulting (FinOps)",
       description:
         "We help you manage cloud costs efficiently by applying FinOps practices — gaining visibility, optimizing usage, and reducing waste across platforms.",
     },
     {
-      icon: "/icons/Tools.png",
+      icon: "https://ktezlusdkqlfdwqrldtn.supabase.co/storage/v1/object/public/web-images//Tools.png",
       title: "Software Development",
       description:
         "We build scalable web and business applications tailored to your workflow — from CRMs to internal tools and digital platforms.",
     },
     {
-      icon: "/icons/Analysis.png",
+      icon: "https://ktezlusdkqlfdwqrldtn.supabase.co/storage/v1/object/public/web-images//Analysis.png",
       title: "Data Analytics & Business Intelligence",
       description:
         "Transform your raw data into visual dashboards and insights to support smarter, data-driven decisions.",
     },
     {
-      icon: "/icons/trading.png",
+      icon: "https://ktezlusdkqlfdwqrldtn.supabase.co/storage/v1/object/public/web-images//Trading.png",
       title: "R&D in Cloud-Based Trading Systems",
       description:
         "Exploring the future of AI-powered algorithmic trading by leveraging scalable cloud infrastructure and cutting-edge research.",
