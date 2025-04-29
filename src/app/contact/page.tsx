@@ -36,14 +36,14 @@ const Home = () => {
           }
         />
 
-        <div className="bg-white text-black px-6 py-16 flex flex-col items-center gap-[1rem] lg:gap-[3rem]">
+        <div className="bg-white text-black px-6 py-8 lg:py-16 flex flex-col items-center gap-[1rem] lg:gap-[3rem]">
           <h2 className="text-3xl lg:text-5xl font-bold">Get In Touch</h2>
           <p>
             Do you have a question? Do you need help choosing a service from us?
             Let&apos;s talk today.
           </p>
 
-          <div className="flex flex-col md:flex-row w-full justify-around gap-6">
+          <div className="flex flex-col md:flex-row w-full justify-around gap-6 mb-7">
             <ContactCard
               icon="https://ktezlusdkqlfdwqrldtn.supabase.co/storage/v1/object/public/web-images//message.png"
               title="Message Us"

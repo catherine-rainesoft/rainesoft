@@ -189,7 +189,7 @@ const Home = () => {
             </div>
             <div className="flex flex-col gap-5">
               <h2 className="text-3xl lg:text-4xl font-bold lg:mb-6 text-white text-center">
-                <span className="text-[#6DC1FC]">Our</span> Vision
+                <span className="text-[#6DC1FC]">Our</span> Values
               </h2>
               <div className="lg:text-[20px] flex gap-[5rem]">
                 <div className="flex flex-col gap-5">
