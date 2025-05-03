@@ -20,10 +20,10 @@ const services = [
       "We design business intelligence dashboards and analytics tools that make data easy to understand and act on.",
   },
   {
-    icon: "https://ktezlusdkqlfdwqrldtn.supabase.co/storage/v1/object/public/web-images//Trading.png",
-    title: "Trading Systems",
+    icon: "https://ktezlusdkqlfdwqrldtn.supabase.co/storage/v1/object/public/blog-images//software.png",
+    title: "Business Management Software",
     description:
-      "We're exploring AI-powered algorithmic trading and next-gen cloud solutions.",
+      "Smart software to automate tasks, boost efficiency, and grow your business with AI.",
   },
 ];
 

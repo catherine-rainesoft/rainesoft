@@ -41,9 +41,9 @@ const Home = () => {
       description: "Transform data into actionable insights",
     },
     {
-      icon: "https://ktezlusdkqlfdwqrldtn.supabase.co/storage/v1/object/public/web-images//Trading.png",
-      title: "R&D in Trading Systems",
-      description: "Research and development of advanced trading systems",
+      icon: "https://ktezlusdkqlfdwqrldtn.supabase.co/storage/v1/object/public/blog-images//software.png",
+      title: "AI-Powered Business Management Software",
+      description: "Streamline operations and drive growth with our AI-powered business tools.",
     },
   ];
 
@@ -64,7 +64,7 @@ const Home = () => {
               <span>Driven by innovation. Focused on your growth.</span>
               <a
                 href="/contact"
-                className="border border-[#6DC1FC] px-3 py-2 rounded-md"
+                className="border border-[#6DC1FC] px-3 py-2 rounded-md hover:text-black hover:bg-[#6DC1FC] transition"
               >
                 Let&apos;s Work Together
               </a>

@@ -1,7 +1,6 @@
 import React from "react";
 import Image from "next/image";
 
-
 interface FeaturedServiceCardProps {
   icon: string;
   title: string;
@@ -14,7 +13,10 @@ const FeaturedServiceCard: React.FC<FeaturedServiceCardProps> = ({
   description,
 }) => {
   return (
-    <div className="bg-[#6dc1fc] rounded-md shadow-lg w-full overflow-hidden  hover:shadow-xl hover:-translate-y-1 transition-transform duration-300" id="Details">
+    <div
+      className="bg-[#6dc1fc] rounded-md shadow-lg w-full overflow-hidden  hover:shadow-xl hover:-translate-y-1 transition-transform duration-300"
+      id="Details"
+    >
       <div className="flex items-center p-4">
         <div className="bg-white rounded-full p-4 mr-4 flex items-center justify-center">
           <Image
@@ -38,8 +40,6 @@ const FeaturedServiceCard: React.FC<FeaturedServiceCardProps> = ({
   );
 };
 
-
-
 const DetailedServices: React.FC = () => {
   const services = [
     {
@@ -61,10 +61,10 @@ const DetailedServices: React.FC = () => {
         "Transform your raw data into visual dashboards and insights to support smarter, data-driven decisions.",
     },
     {
-      icon: "https://ktezlusdkqlfdwqrldtn.supabase.co/storage/v1/object/public/web-images//Trading.png",
-      title: "R&D in Cloud-Based Trading Systems",
+      icon: "https://ktezlusdkqlfdwqrldtn.supabase.co/storage/v1/object/public/blog-images//software.png",
+      title: "AI-Powered Business Management Software",
       description:
-        "Exploring the future of AI-powered algorithmic trading by leveraging scalable cloud infrastructure and cutting-edge research.",
+        "Streamline your operations with intelligent, AI-driven tools designed to optimize workflows, automate tasks, and provide real-time insights for smarter business decisions.",
     },
   ];
 

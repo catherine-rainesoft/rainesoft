@@ -28,7 +28,7 @@ const Home = () => {
               </span>
               <a
                 href="#Get-In-Touch"
-                className="border border-[#6DC1FC] px-3 py-2 rounded-md"
+                className="border border-[#6DC1FC] px-3 py-2 rounded-md hover:text-black hover:bg-[#6DC1FC] transition"
               >
                 Let&apos;s Connect
               </a>

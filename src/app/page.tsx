@@ -30,14 +30,14 @@ const Home = () => {
                 </span>
                 <div className="flex gap-5">
                   <a
-                    className="border border-[#6DC1FC] px-3 py-2 rounded-md"
+                    className="border border-[#6DC1FC] px-3 py-2 rounded-md hover:text-black hover:bg-[#6DC1FC] transition"
                     href="/services"
                   >
                     Our Services
                   </a>
                   <a
                     href="/contact"
-                    className="border border-[#6DC1FC] px-3 py-2 rounded-md"
+                    className="border border-[#6DC1FC] px-3 py-2 rounded-md hover:text-black hover:bg-[#6DC1FC] transition"
                   >
                     Contact Us
                   </a>
@@ -171,7 +171,7 @@ const Home = () => {
                     Let&apos;s build something amazing together.
                   </span>
                   <a
-                    className="border border-[#6DC1FC] px-3 py-2 rounded-md"
+                    className="border border-[#6DC1FC] px-3 py-2 rounded-md hover:text-black hover:bg-[#6DC1FC] transition"
                     href="/contact"
                   >
                     Get Started Today

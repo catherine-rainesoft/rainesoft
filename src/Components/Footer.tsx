@@ -32,10 +32,10 @@ export default function Footer() {
           {/* Company */}
           <div className="flex flex-col gap-3 lg:gap-7 items-start">
             <span className="font-bold">Company</span>
-            <a href ="#About-Us"  className="text-gray-300 hover:text-white scroll-smooth">About Us</a>
-            <a href ="#Our-Services"  className="text-gray-300 hover:text-white">Our Services</a>
-            <a href ="#Blog"  className="text-gray-300 hover:text-white">Blog</a>
-            <a href ="#Contacts"  className="text-gray-300 hover:text-white"> Contact Us</a>
+            <a href ="/about"  className="text-gray-300 hover:text-white scroll-smooth">About Us</a>
+            <a href ="/services"  className="text-gray-300 hover:text-white">Our Services</a>
+            <a href ="/blog"  className="text-gray-300 hover:text-white">Blog</a>
+            <a href ="/contact"  className="text-gray-300 hover:text-white"> Contact Us</a>
           </div>
 
           {/* Services */}

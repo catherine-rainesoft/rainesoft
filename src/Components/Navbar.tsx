@@ -64,20 +64,7 @@ export default function Navbar() {
           ))}
         </div>
 
-        <div className="hidden lg:flex gap-3">
-          <Link
-            href="/login"
-            className="px-4 py-2 border border-[#6DC1FC] rounded-lg text-white hover:text-black hover:bg-[#6DC1FC] transition"
-          >
-            Log In
-          </Link>
-          <Link
-            href="/signup"
-            className="px-4 py-2 bg-[#6DC1FC] border text-black rounded-lg hover:bg-transparent hover:text-white hover:border-[#6DC1FC] transition"
-          >
-            Sign Up
-          </Link>
-        </div>
+       
 
         {/* Mobile hamburger */}
         <button className="md:hidden" onClick={() => setMenuOpen((prev) => !prev)}>
@@ -105,22 +92,7 @@ export default function Navbar() {
             </Link>
           ))}
 
-          <div className="flex flex-col gap-2 mt-4">
-            <Link
-              href="/login"
-              className="block px-4 py-2 border border-[#6DC1FC] rounded-lg text-black text-center hover:bg-blue-50 transition"
-              onClick={() => setMenuOpen(false)}
-            >
-              Log In
-            </Link>
-            <Link
-              href="/signup"
-              className="block px-4 py-2 bg-[#6DC1FC] text-black rounded-lg text-center hover:bg-blue-700 transition"
-              onClick={() => setMenuOpen(false)}
-            >
-              Sign Up
-            </Link>
-          </div>
+          
         </div>
       </div>
     </nav>

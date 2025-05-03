@@ -6,6 +6,7 @@ import SingleBlog from "@/app/blog/SingleBlog";
 import BlogList from "@/Components/BlogList";
 import { supabase } from "@/lib/supabaseClient";
 import Hero from "@/Components/Hero";
+import Link from "next/link";
 
 export type BlogPost = {
   id: string;
@@ -52,12 +53,20 @@ export default function Page() {
                 Explore our latest thoughts on cloud, software, data, and
                 innovation.
               </span>
-              <a
-                href="#Blog-post"
-                className="border border-[#6DC1FC] px-3 py-2 rounded-md"
-              >
-                Blog
-              </a>
+              <div className="hidden lg:flex gap-3">
+          <Link
+            href="/login"
+            className="px-4 py-2 border border-[#6DC1FC] rounded-lg text-white hover:text-black hover:bg-[#6DC1FC] transition"
+          >
+            Log In
+          </Link>
+          <Link
+            href="/signup"
+            className="px-4 py-2 bg-[#6DC1FC] border text-black rounded-lg hover:bg-transparent hover:text-white hover:border-[#6DC1FC] transition"
+          >
+            Sign Up
+          </Link>
+        </div>
             </div>
           }
         />

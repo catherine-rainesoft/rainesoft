@@ -18,7 +18,7 @@ const Home = () => {
                 What We <span className="text-[#6dc1fc]">Do</span>
               </h1>
               <span>Innovative solutions that move your business forward.</span>
-              <a href="#Details" className="border border-[#6DC1FC] px-3 py-2 rounded-md">
+              <a href="#Details" className="border border-[#6DC1FC] px-3 py-2 rounded-md hover:text-black hover:bg-[#6DC1FC] transition">
                 Our Services
               </a>
             </div>

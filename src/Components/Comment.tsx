@@ -1,97 +1,70 @@
-import React, { useState } from "react";
+"use client"
 
-const PostComment = () => {
-  const [formData, setFormData] = useState({
-    fullName: "",
-    email: "",
-    comment: "",
-  });
+import React, { useState } from "react"
+import { supabase } from "@/lib/supabaseClient"
 
-  const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-  ) => {
-    const { name, value } = e.target;
-    setFormData((prevState) => ({
-      ...prevState,
-      [name]: value,
-    }));
-  };
+const PostComment = ({ blogId }: { blogId: string }) => {
+  const [formData, setFormData] = useState({ fullName: "", email: "", comment: "" })
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    console.log("Form submitted:", formData);
-  };
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target
+    setFormData((prev) => ({ ...prev, [name]: value }))
+  }
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault()
+
+    const { error } = await supabase.from("comments").insert([
+      {
+        blog_id: blogId,
+        full_name: formData.fullName,
+        email: formData.email,
+        comment: formData.comment,
+      },
+    ])
+
+    if (error) {
+      console.error("Error posting comment:", error.message)
+    } else {
+      alert("Comment posted!")
+      setFormData({ fullName: "", email: "", comment: "" })
+    }
+  }
 
   return (
-    <div className="p-8">
-      <h2 className="text-3xl font-bold mb-6  text-black">
-        Leave a comment
-      </h2>
-      <p className="text-black text-[20px] mb-5">Share your thoughts on our posts</p>
-      <form onSubmit={handleSubmit} className="space-y-4">
-        <div className="flex gap-3">
-        <div className="w-[50%]">
-          <label
-            htmlFor="fullName"
-            className="block text-sm font-bold text-black"
-          >
-            Full Name
-          </label>
-          <input
-            type="text"
-            id="fullName"
-            name="fullName"
-            value={formData.fullName}
-            onChange={handleChange}
-            className="mt-1 block w-full px-3 py-2 border-2 border-[#6DC1FC] rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-[#6dc1fc]  placeholder:text-sm placeholder-[#0000001A] placeholder:text-center placeholder:font-bold"
-            placeholder="Melanie"
-          />
-        </div>
+    <form onSubmit={handleSubmit} className="p-8 space-y-4">
+      <h2 className="text-2xl font-bold text-black">Leave a Comment</h2>
+      <input
+        name="fullName"
+        value={formData.fullName}
+        onChange={handleChange}
+        placeholder="Full Name"
+        required
+        className="w-full border p-2 rounded border-[#6DC1FC]"
+      />
+      <input
+        name="email"
+        value={formData.email}
+        onChange={handleChange}
+        type="email"
+        placeholder="Email"
+        required
+        className="w-full border p-2 rounded border-[#6DC1FC]"
+      />
+      <textarea
+        name="comment"
+        value={formData.comment}
+        onChange={handleChange}
+        rows={4}
+        placeholder="Comment"
+        required
+        className="w-full border text-black p-2 rounded border-[#6DC1FC]"
+      />
+      <button type="submit" className="border border-[#6DC1FC] text-black px-4 py-2 rounded hover:shadow-md">
+        Submit
+      </button>
+    </form>
+  )
+}
 
-        <div  className="w-[50%]">
-          <label htmlFor="email" className="block text-sm font-bold text-black">
-            Email address
-          </label>
-          <input
-            type="email"
-            id="email"
-            name="email"
-            value={formData.email}
-            onChange={handleChange}
-            className="mt-1 block w-full px-3 py-2 border-2 border-[#6DC1FC] rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-[#6dc1fc]  placeholder:text-sm placeholder-[#0000001A] placeholder:text-center placeholder:font-bold"
-            placeholder="natalie@gmail.com"
-          />
-        </div>
-        </div>
-
-        <div>
-          <label
-            htmlFor="comment"
-            className="block text-sm font-bold text-black"
-          >
-            Comment
-          </label>
-          <textarea
-            id="comment"
-            name="comment"
-            value={formData.comment}
-            onChange={handleChange}
-            rows={4}
-            className="mt-1 block w-full px-3 py-2 border-2 border-[#6DC1FC] rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-[#6dc1fc]  placeholder:text-sm placeholder-[#0000001A] placeholder:text-center placeholder:font-bold"
-          />
-        </div>
-
-        <div className="flex justify-end">
-          <button
-            type="submit"
-            className=" text-black font-bold py-1 w-full lg:w-[40%] rounded-md hover:shadow-md border border-[#6dc1fc] hover:border-[#6dc1fc] transition-colors"
-          >
-            Post Comment
-          </button>
-        </div>
-      </form>
-    </div>
-  );
-};
-
-export default PostComment;
+export default PostComment
