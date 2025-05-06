@@ -1,6 +1,6 @@
 "use client";
 
-import  { motion } from "framer-motion";
+import { motion } from "framer-motion";
 import React, { useState, useEffect } from "react";
 import SingleBlog from "@/app/blog/SingleBlog";
 import BlogList from "@/Components/BlogList";
@@ -28,7 +28,7 @@ export default function Page() {
       } else {
         setBlogs(data as BlogPost[]);
         if (data && data.length > 0) {
-          setSelectedBlog(data[0]); 
+          setSelectedBlog(data[0]);
         }
       }
     };
@@ -53,20 +53,14 @@ export default function Page() {
                 Explore our latest thoughts on cloud, software, data, and
                 innovation.
               </span>
-              <div className="hidden lg:flex gap-3">
-          <Link
-            href="/login"
-            className="px-4 py-2 border border-[#6DC1FC] rounded-lg text-white hover:text-black hover:bg-[#6DC1FC] transition"
-          >
-            Log In
-          </Link>
-          <Link
-            href="/signup"
-            className="px-4 py-2 bg-[#6DC1FC] border text-black rounded-lg hover:bg-transparent hover:text-white hover:border-[#6DC1FC] transition"
-          >
-            Sign Up
-          </Link>
-        </div>
+             
+                <Link
+                  href="/login"
+                  className="px-4 py-2 border border-[#6DC1FC] rounded-lg text-white hover:text-black hover:bg-[#6DC1FC] transition"
+                >
+                  Log In
+                </Link>
+              
             </div>
           }
         />
@@ -79,8 +73,7 @@ export default function Page() {
               {selectedBlog && <SingleBlog blog={selectedBlog} />}
             </div>
             <div className="w-full md:w-1/3">
-            <BlogList blogs={blogs} onSelectBlogAction={setSelectedBlog} />
-
+              <BlogList blogs={blogs} onSelectBlogAction={setSelectedBlog} />
             </div>
           </div>
         </div>

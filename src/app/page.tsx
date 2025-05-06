@@ -100,7 +100,7 @@ const Home = () => {
 
         <div className="bg-blue-600">
           <div
-            className="bg-fixed bg-center bg-cover"
+            className="bg-fixed bg-center bg-cover relative"
             style={{
               backgroundImage:
                 "url('https://ktezlusdkqlfdwqrldtn.supabase.co/storage/v1/object/public/web-images//scroll.png')",
